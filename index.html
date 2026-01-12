@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>montenorte | 3D Design + Digital Art</title>
-    <meta name="description" content="3D Design, Digital Art, and Creative Content. From pixels to products.">
+    <title>montenorte | 3D Design + Digital Art Studio</title>
+    <meta name="description" content="Creative studio specializing in 3D design, digital art, and unique handcrafted products. Based in Altea, Spain.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
     <style>
         * {
@@ -18,27 +18,39 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --bg: #FAFAFA;
+            --card: #FFFFFF;
+            --text: #0A0A0A;
+            --text-secondary: #666666;
+            --border: #E5E5E5;
+            --accent: #FF6B35;
+            --hover: #F4F4F4;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #FAFAFA;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 0;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 40px 20px;
-            color: #1A1A1A;
         }
 
         .container {
-            max-width: 600px;
+            max-width: 540px;
             width: 100%;
+            padding: 60px 24px;
             animation: fadeIn 0.6s ease-out;
         }
 
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(10px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -47,113 +59,217 @@
         }
 
         .header {
-            text-align: center;
             margin-bottom: 48px;
         }
 
-        .logo-img {
-            width: 120px;
-            height: auto;
-            margin-bottom: 24px;
-            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            color: var(--text);
         }
 
         .tagline {
-            font-size: 1rem;
-            color: #666;
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
             font-weight: 400;
-            letter-spacing: -0.01em;
+        }
+
+        .bio {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 460px;
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 48px 0;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
         }
 
         .links {
-            display: flex;
-            flex-direction: column;
+            display: grid;
             gap: 12px;
             margin-bottom: 48px;
         }
 
         .link {
-            background: #FFF;
-            border: 1px solid #E5E5E5;
+            background: var(--card);
+            border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 20px 24px;
+            padding: 20px;
             text-decoration: none;
-            color: #1A1A1A;
-            transition: all 0.2s ease;
+            color: var(--text);
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            gap: 16px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
 
-        .link:hover {
-            border-color: #1A1A1A;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        }
-
-        .link-title {
-            font-weight: 500;
-            font-size: 1rem;
-            letter-spacing: -0.01em;
-        }
-
-        .link-arrow {
-            color: #999;
-            font-size: 1.2rem;
+        .link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent);
+            transform: scaleY(0);
             transition: transform 0.2s ease;
         }
 
-        .link:hover .link-arrow {
-            transform: translateX(3px);
-            color: #1A1A1A;
+        .link:hover {
+            background: var(--hover);
+            border-color: var(--text);
+            transform: translateX(2px);
         }
 
-        .social {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-bottom: 48px;
+        .link:hover::before {
+            transform: scaleY(1);
         }
 
-        .social-link {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: #FFF;
-            border: 1px solid #E5E5E5;
+        .link-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--bg);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #666;
-            text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            transition: transform 0.2s ease;
+        }
+
+        .link:hover .link-icon {
+            transform: scale(1.05);
+        }
+
+        .link-content {
+            flex: 1;
+        }
+
+        .link-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 2px;
+            letter-spacing: -0.01em;
+        }
+
+        .link-description {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .link-arrow {
+            color: var(--text-secondary);
+            font-size: 1.25rem;
             transition: all 0.2s ease;
+            opacity: 0.5;
+        }
+
+        .link:hover .link-arrow {
+            opacity: 1;
+            transform: translateX(4px);
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .social-link {
+            aspect-ratio: 1;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.2s ease;
+            padding: 16px;
         }
 
         .social-link:hover {
-            border-color: #1A1A1A;
-            color: #1A1A1A;
+            background: var(--hover);
+            border-color: var(--text);
             transform: translateY(-2px);
         }
 
-        .footer {
+        .social-icon {
+            font-size: 1.5rem;
+        }
+
+        .social-name {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-secondary);
             text-align: center;
-            color: #999;
+        }
+
+        .footer {
+            margin-top: 64px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+            text-align: center;
             font-size: 0.875rem;
-            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 12px;
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--text);
         }
 
         @media (max-width: 640px) {
-            body {
-                padding: 32px 20px;
+            .container {
+                padding: 40px 20px;
             }
 
-            .logo-img {
-                width: 100px;
+            .logo {
+                font-size: 2rem;
             }
 
-            .link {
-                padding: 18px 20px;
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .social-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -161,50 +277,86 @@
 <body>
     <div class="container">
         <div class="header">
-            <img src="montenorte_logo.png" alt="montenorte" class="logo-img">
-            <p class="tagline">3D Design + Digital Art</p>
+            <h1 class="logo">montenorte</h1>
+            <p class="tagline">3D Design + Digital Art Studio</p>
+            <p class="bio">
+                We transform ideas into tangible creations. Specializing in 3D printed products,
+                digital art, and design education. From Blender to your hands, we craft unique
+                pieces that blend technology with artistry.
+            </p>
         </div>
+
+        <div class="divider"></div>
+
+        <div class="section-title">Explore</div>
 
         <div class="links">
             <a href="https://www.etsy.com/shop/montenorte" class="link" target="_blank" rel="noopener">
-                <span class="link-title">Etsy Shop</span>
+                <div class="link-icon">🛍️</div>
+                <div class="link-content">
+                    <div class="link-title">Etsy Shop</div>
+                    <div class="link-description">3D printed products & digital downloads</div>
+                </div>
                 <span class="link-arrow">→</span>
             </a>
 
             <a href="https://www.youtube.com/@montenorte_studio" class="link" target="_blank" rel="noopener">
-                <span class="link-title">YouTube</span>
+                <div class="link-icon">📺</div>
+                <div class="link-content">
+                    <div class="link-title">YouTube</div>
+                    <div class="link-description">Free tutorials & creative timelapses</div>
+                </div>
                 <span class="link-arrow">→</span>
             </a>
 
             <a href="https://montenortestudio.blogspot.com" class="link" target="_blank" rel="noopener">
-                <span class="link-title">Blog</span>
+                <div class="link-icon">📝</div>
+                <div class="link-content">
+                    <div class="link-title">Blog</div>
+                    <div class="link-description">Guides, tips & behind the scenes</div>
+                </div>
                 <span class="link-arrow">→</span>
             </a>
 
             <a href="mailto:montenorte.studio@gmail.com" class="link">
-                <span class="link-title">Contact</span>
+                <div class="link-icon">✉️</div>
+                <div class="link-content">
+                    <div class="link-title">Get in Touch</div>
+                    <div class="link-description">Custom projects & collaborations</div>
+                </div>
                 <span class="link-arrow">→</span>
             </a>
         </div>
 
-        <div class="social">
-            <a href="https://instagram.com/montenorte_studio" class="social-link" target="_blank" rel="noopener" aria-label="Instagram">
-                <span>📸</span>
+        <div class="section-title">Follow Us</div>
+
+        <div class="social-grid">
+            <a href="https://instagram.com/montenorte_studio" class="social-link" target="_blank" rel="noopener">
+                <span class="social-icon">📸</span>
+                <span class="social-name">Instagram</span>
             </a>
-            <a href="https://tiktok.com/@montenorte" class="social-link" target="_blank" rel="noopener" aria-label="TikTok">
-                <span>🎵</span>
+            <a href="https://tiktok.com/@montenorte" class="social-link" target="_blank" rel="noopener">
+                <span class="social-icon">🎵</span>
+                <span class="social-name">TikTok</span>
             </a>
-            <a href="https://twitter.com/montenorte_std" class="social-link" target="_blank" rel="noopener" aria-label="Twitter">
-                <span>🐦</span>
+            <a href="https://twitter.com/montenorte_std" class="social-link" target="_blank" rel="noopener">
+                <span class="social-icon">🐦</span>
+                <span class="social-name">Twitter</span>
             </a>
-            <a href="https://pinterest.com/montenorte_studio" class="social-link" target="_blank" rel="noopener" aria-label="Pinterest">
-                <span>📌</span>
+            <a href="https://pinterest.com/montenorte_studio" class="social-link" target="_blank" rel="noopener">
+                <span class="social-icon">📌</span>
+                <span class="social-name">Pinterest</span>
             </a>
         </div>
 
-        <div class="footer">
-            <p>Altea, Spain</p>
-        </div>
+        <footer class="footer">
+            <p>Based in Altea, Spain 🇪🇸</p>
+            <div class="footer-links">
+                <a href="mailto:montenorte.studio@gmail.com" class="footer-link">Contact</a>
+                <span>•</span>
+                <a href="https://www.etsy.com/shop/montenorte/policy" class="footer-link">Policies</a>
+            </div>
+        </footer>
     </div>
 </body>
 </html>
