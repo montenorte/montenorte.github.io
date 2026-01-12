@@ -9,7 +9,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         * {
@@ -18,35 +18,27 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --primary: #2C5F8D;
-            --secondary: #F4A261;
-            --accent: #E76F51;
-            --dark: #264653;
-            --light: #F1FAEE;
-        }
-
         body {
-            font-family: 'Open Sans', sans-serif;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #FAFAFA;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
-            color: var(--light);
+            padding: 40px 20px;
+            color: #1A1A1A;
         }
 
         .container {
-            max-width: 680px;
+            max-width: 600px;
             width: 100%;
-            animation: fadeIn 0.8s ease-out;
+            animation: fadeIn 0.6s ease-out;
         }
 
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(10px);
             }
             to {
                 opacity: 1;
@@ -56,173 +48,112 @@
 
         .header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 48px;
         }
 
-        .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, var(--light) 0%, var(--secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .logo-img {
+            width: 120px;
+            height: auto;
+            margin-bottom: 24px;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
         }
 
         .tagline {
-            font-size: 1.1rem;
-            color: var(--light);
-            opacity: 0.9;
-            font-weight: 300;
-        }
-
-        .bio {
-            text-align: center;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 40px;
-            opacity: 0.85;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 1rem;
+            color: #666;
+            font-weight: 400;
+            letter-spacing: -0.01em;
         }
 
         .links {
             display: flex;
             flex-direction: column;
-            gap: 16px;
-            margin-bottom: 40px;
+            gap: 12px;
+            margin-bottom: 48px;
         }
 
         .link {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
+            background: #FFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 12px;
             padding: 20px 24px;
             text-decoration: none;
-            color: var(--light);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            color: #1A1A1A;
+            transition: all 0.2s ease;
             display: flex;
             align-items: center;
-            gap: 16px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(244, 162, 97, 0.2) 0%, rgba(231, 111, 81, 0.2) 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            justify-content: space-between;
         }
 
         .link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-            border-color: var(--secondary);
-        }
-
-        .link:hover::before {
-            opacity: 1;
-        }
-
-        .link-icon {
-            font-size: 1.5rem;
-            min-width: 40px;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .link-content {
-            flex: 1;
-            position: relative;
-            z-index: 1;
+            border-color: #1A1A1A;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
         .link-title {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 4px;
-        }
-
-        .link-description {
-            font-size: 0.85rem;
-            opacity: 0.8;
+            font-weight: 500;
+            font-size: 1rem;
+            letter-spacing: -0.01em;
         }
 
         .link-arrow {
+            color: #999;
             font-size: 1.2rem;
-            opacity: 0.6;
-            transition: transform 0.3s ease;
-            position: relative;
-            z-index: 1;
+            transition: transform 0.2s ease;
         }
 
         .link:hover .link-arrow {
-            transform: translateX(4px);
-            opacity: 1;
+            transform: translateX(3px);
+            color: #1A1A1A;
         }
 
         .social {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 48px;
         }
 
         .social-link {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #FFF;
+            border: 1px solid #E5E5E5;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--light);
+            color: #666;
             text-decoration: none;
-            font-size: 1.3rem;
-            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            transition: all 0.2s ease;
         }
 
         .social-link:hover {
-            background: var(--secondary);
-            border-color: var(--secondary);
+            border-color: #1A1A1A;
+            color: #1A1A1A;
             transform: translateY(-2px);
         }
 
         .footer {
             text-align: center;
-            margin-top: 40px;
-            opacity: 0.6;
-            font-size: 0.85rem;
+            color: #999;
+            font-size: 0.875rem;
+            font-weight: 400;
         }
 
         @media (max-width: 640px) {
-            .logo {
-                font-size: 2.5rem;
+            body {
+                padding: 32px 20px;
             }
 
-            .tagline {
-                font-size: 1rem;
+            .logo-img {
+                width: 100px;
             }
 
             .link {
-                padding: 16px 20px;
-            }
-
-            .link-title {
-                font-size: 1rem;
+                padding: 18px 20px;
             }
         }
     </style>
@@ -230,49 +161,28 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1 class="logo">montenorte</h1>
+            <img src="montenorte_logo.png" alt="montenorte" class="logo-img">
             <p class="tagline">3D Design + Digital Art</p>
         </div>
 
-        <p class="bio">
-            From pixels to products 🏔️<br>
-            Physical & digital creations | Tutorials | Unique designs
-        </p>
-
         <div class="links">
             <a href="https://www.etsy.com/shop/montenorte" class="link" target="_blank" rel="noopener">
-                <span class="link-icon">🛍️</span>
-                <div class="link-content">
-                    <div class="link-title">Etsy Shop</div>
-                    <div class="link-description">3D printed products & digital downloads</div>
-                </div>
+                <span class="link-title">Etsy Shop</span>
                 <span class="link-arrow">→</span>
             </a>
 
             <a href="https://www.youtube.com/@montenorte_studio" class="link" target="_blank" rel="noopener">
-                <span class="link-icon">📺</span>
-                <div class="link-content">
-                    <div class="link-title">YouTube</div>
-                    <div class="link-description">Free tutorials & timelapses</div>
-                </div>
+                <span class="link-title">YouTube</span>
                 <span class="link-arrow">→</span>
             </a>
 
             <a href="https://montenortestudio.blogspot.com" class="link" target="_blank" rel="noopener">
-                <span class="link-icon">📚</span>
-                <div class="link-content">
-                    <div class="link-title">Blog</div>
-                    <div class="link-description">Complete guides & resources</div>
-                </div>
+                <span class="link-title">Blog</span>
                 <span class="link-arrow">→</span>
             </a>
 
             <a href="mailto:montenorte.studio@gmail.com" class="link">
-                <span class="link-icon">💬</span>
-                <div class="link-content">
-                    <div class="link-title">Contact</div>
-                    <div class="link-description">Custom orders & collaborations</div>
-                </div>
+                <span class="link-title">Contact</span>
                 <span class="link-arrow">→</span>
             </a>
         </div>
@@ -293,7 +203,7 @@
         </div>
 
         <div class="footer">
-            <p>Altea, Spain 🇪🇸</p>
+            <p>Altea, Spain</p>
         </div>
     </div>
 </body>
